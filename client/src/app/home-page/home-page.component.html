@@ -1,9 +1,38 @@
-<p>home-page works!</p>
-<div class="p-d-flex p-flex-row">
-  <div class="p-mr-2" style="margin: 0.5rem; border: 1px solid;">
-    Hello
+<div class="p-d-flex p-d-column p-d-md-row">
+  <div class="p-mr-2 p-mb-2">
+    <button
+      pButton
+      type="button"
+      class="p-button-plain p-button-raised p-button-override"
+      (click)="handleSearchRedirect()"
+    >
+      <p-card>
+        <p-header>
+          <img alt="Books" src="assets/images/books.jfif" />
+        </p-header>
+        <div class="p-flex-colum">
+          <h3>FIND A NEW BOOK</h3>
+          <p>Click here to search for new books</p>
+        </div>
+      </p-card>
+    </button>
   </div>
-  <div class="p-mr-2" style="margin: 0.5rem; border: 1px solid;">
-    Goodbye
+  <div>
+    <button
+      pButton
+      type="button"
+      class="p-button-plain p-button-raised p-button-override"
+      (click)="handleSavedRedirect()"
+    >
+      <p-card>
+        <p-header>
+          <img alt="Saved" src="assets/images/savedbooks.jfif" />
+        </p-header>
+        <div class="p-flex-colum">
+          <h3>YOUR SAVED BOOKS</h3>
+          <p>Click here to see your saved books</p>
+        </div>
+      </p-card>
+    </button>
   </div>
 </div>

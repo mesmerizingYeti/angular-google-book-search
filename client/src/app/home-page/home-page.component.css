@@ -1,0 +1,12 @@
+img {
+  height: 350px;
+  height: 150px;
+}
+
+::ng-deep .p-button-override {
+  padding: 0;
+}
+
+::ng-deep .p-button-label {
+  display: none;
+}
