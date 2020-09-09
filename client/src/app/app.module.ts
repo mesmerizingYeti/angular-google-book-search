@@ -9,13 +9,13 @@ import { MenuModule } from 'primeng/menu';
 import { CardModule } from 'primeng/card';
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { NavDrawerComponent } from './components/nav-drawer/nav-drawer.component';
 
 import { DrawerService } from './drawer.service';
-import { HomePageComponent } from './home-page/home-page.component';
-import { SearchPageComponent } from './search-page/search-page.component';
-import { SavedPageComponent } from './saved-page/saved-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { SavedPageComponent } from './pages/saved-page/saved-page.component';
 
 @NgModule({
   declarations: [

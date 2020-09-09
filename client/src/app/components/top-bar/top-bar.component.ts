@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import { DrawerService } from '../../drawer.service';
 
 @Component({
   selector: 'app-top-bar',
