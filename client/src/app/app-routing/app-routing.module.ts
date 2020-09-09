@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'search', component: SearchPageComponent },
   { path: 'saved', component: SavedPageComponent },
+  { path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({

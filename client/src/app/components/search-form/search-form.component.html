@@ -1,0 +1,31 @@
+<p-card styleClass="p-card-override">
+  <div class="p-fluid">
+    <div class="p-field">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Book Title"
+          [(ngModel)]="bookTitle"
+        />
+      </span>
+    </div>
+    <div class="p-field">
+      <button pButton pRipple type="button" class="">Search</button>
+    </div>
+  </div>
+</p-card>
+<br />
+<ngx-flip [flip]="flipBook">
+  <div front>
+    <button (click)="toggleBookCard()" class="button-card">
+      <p-card> Front </p-card>
+    </button>
+  </div>
+  <div back>
+    <button (click)="toggleBookCard()" class="button-card">
+      <p-card> Back </p-card>
+    </button>
+  </div>
+</ngx-flip>
