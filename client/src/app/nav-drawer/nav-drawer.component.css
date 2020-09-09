@@ -1,0 +1,9 @@
+::ng-deep .p-sidebar-override {
+  padding: 0;
+  width: 12.6rem !important;
+  border-radius: 3px !important;
+}
+
+::ng-deep .p-menu-override {
+  border: none;
+}

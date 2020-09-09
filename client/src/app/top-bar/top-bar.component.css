@@ -36,3 +36,15 @@
 .toolbar #twitter-logo:hover {
   opacity: 0.8;
 }
+
+a {
+  text-decoration: none;
+}
+
+a button {
+  color: white;
+}
+
+::ng-deep .p-button-rounded.p-button-text {
+  color: white;
+}

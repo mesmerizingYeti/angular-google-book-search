@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DrawerService } from '../drawer.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  isOpen: boolean;
 
-  ngOnInit(): void {
+  constructor(private data: DrawerService) { }
+
+  ngOnInit() { }
+
+  openDrawer() {
+    this.data.changeValue(true);
   }
-
 }
