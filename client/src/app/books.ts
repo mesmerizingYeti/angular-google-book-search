@@ -6,7 +6,6 @@ export class Book {
   description: string;
   image: string;
   link: string;
-  isCardFlipped: boolean;
 
   constructor(
     title: string,
@@ -23,6 +22,5 @@ export class Book {
     this.description = description;
     this.image = image;
     this.link = link;
-    this.isCardFlipped = false;
   }
 }

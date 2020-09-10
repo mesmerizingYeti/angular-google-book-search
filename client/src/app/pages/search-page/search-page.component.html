@@ -1,14 +1,25 @@
 <app-search-form></app-search-form>
-<div class="p-d-flex p-d-column">
-  <ul style="list-style-type: none">
-    <li *ngFor="let book of books">
-      <h2>{{ book.title }}</h2>
-      <p *ngIf="book.description !== undefined">{{ book.description }}</p>
-      <img
-        *ngIf="book.image !== undefined"
-        alt="Book Thumbnail"
-        [src]="book.image"
-      />
-    </li>
-  </ul>
-</div>
+<p-dataView [value]="books">
+  <p-header>
+    List of Books
+    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+  </p-header>
+  <p-footer>Choose from the list.</p-footer>
+  <ng-template let-book pTemplate="listItem">
+    <div class="p-col-12">
+      <div>
+        <img />
+      </div>
+      <div>
+        <p>{{ book.title }}</p>
+        <p>{{ book.authors.join(', ') }}</p>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-book pTemplate="gridItem">
+    <div class="p-col-12 p-md-3">
+      {{book.title}}
+      {{book.publishedDate}}
+    </div>
+  </ng-template> 
+</p-dataView>
