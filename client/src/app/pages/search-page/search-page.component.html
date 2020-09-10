@@ -1,18 +1,11 @@
 <app-search-form></app-search-form>
 <p-dataView *ngIf="books.length" [value]="books">
-  <p-header>
-    <div class="p-d-flex p-jc-center p-ai-center">
-      <div class="p-col-2">
-        <h3>Search Results</h3>
-      </div>
-    </div>
-  </p-header>
   <ng-template let-book pTemplate="listItem">
-    <div class="p-col-12 p-d-flex">
+    <div class="p-col-12 p-d-flex p-jc-between">
       <div class="p-col-2">
         <img alt="Book Cover" [src]="book.image" />
       </div>
-      <div class="p-col-8">
+      <div class="p-col-7 p-d-flex p-flex-column p-jc-between">
         <div>
           <h4>{{ book.title }}</h4>
         </div>

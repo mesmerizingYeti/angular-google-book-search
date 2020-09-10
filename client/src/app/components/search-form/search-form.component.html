@@ -1,19 +1,26 @@
 <p-card styleClass="p-card-override">
-  <div class="p-fluid">
-    <div class="p-field">
-      <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input
-          type="text"
-          pInputText
-          placeholder="Book Title"
-          [(ngModel)]="bookTitle"
-        />
-      </span>
+  <form>
+    <div class="p-fluid">
+      <div class="p-field">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            pInputText
+            placeholder="Book Title"
+            [(ngModel)]="bookTitle"
+            name="first"
+          />
+        </span>
+      </div>
+      <div class="p-field">
+        <p-button
+          pRipple
+          type="submit"
+          label="Search"
+          (onClick)="handleSearch()"
+        ></p-button>
+      </div>
     </div>
-    <div class="p-field">
-      <p-button pRipple type="button" label="Search" (onClick)="handleSearch()"></p-button>
-    </div>
-  </div>
+  </form>
 </p-card>
-<br />
