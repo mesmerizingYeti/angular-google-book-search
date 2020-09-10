@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../books';
+import { BookApiService } from '../../services/book-api/book-api.service'
 
 @Component({
   selector: 'app-books-list',
@@ -14,7 +15,7 @@ export class BooksListComponent implements OnInit {
   modalHeader: string = "";
   modalDescription: string = "";
 
-  constructor() { }
+  constructor(private BookApi: BookApiService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,18 @@ export class BooksListComponent implements OnInit {
   handleViewClick = (url: string) => {
     // open book link in new tab
     window.open(url, "_blank");
+  }
+
+  handleSaveClick = (google_id: string) => {
+    // find book clicked
+    var book = this.books.filter((book) => book.google_id === google_id)[0];
+    // remove _id so mongoDB can automatically assign one
+    delete book._id;
+    this.BookApi.addBook(book)
+      .then(book => {
+        console.log(book)
+      })
+      .catch(err => console.error(err));
   }
 
 }

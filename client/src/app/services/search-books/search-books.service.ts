@@ -15,7 +15,6 @@ export class SearchBooksService {
 
   searchForTitle = (title: string) => {
     this.BookApi.searchForBooks(title)
-      .toPromise()
       .then((data: { items: [] }) => {
         var searchBooks = data.items.map(
           (item : {

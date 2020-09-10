@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Book } from '../../books';
+import { BookApiService } from '../book-api/book-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +11,39 @@ export class SavedBooksService {
   private savedBooks: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>(new Array<Book>());
   currentBooks = this.savedBooks.asObservable();
 
-  constructor() { }
+  constructor(private BookApi: BookApiService) { }
 
-  addBook(book: Book): void {
-    this.savedBooks
-      .subscribe(books => {
-        books.push(book);
-        this.savedBooks.next(books);
+  handleRemoveBook = (_id: string) => {
+  }
+
+  getBooks = () => {
+    this.BookApi.getSavedBooks()
+      .then((books: Array<Object>) => {
+        var newBooks = books.map((book: {
+          google_id: string,
+          title: string,
+          authors: [string],
+          publishedDate: string,
+          description: string,
+          image: string,
+          link: string
+        }) => {
+          return new Book(
+            book.google_id, 
+            book.title,
+            book.authors,
+            book.publishedDate,
+            book.description,
+            book.image,
+            book.link
+          )
+        });
+        this.savedBooks.next(newBooks);
       })
   }
 
-  removeBook(book: Book): void {
-    this.savedBooks
-      .subscribe(books => {
-        books = books.filter(currentBook => currentBook._id !== book._id);
-        this.savedBooks.next(books);
-      })
+  setBooks = (books: Book[]) => {
+    this.savedBooks.next(books);
   }
 
 }

@@ -45,6 +45,7 @@
           iconPos="left"
           label="Save"
           styleClass="p-button-raised p-button-success"
+          (click)="handleSaveClick(book.google_id)"
         ></p-button>
         <p-button
           *ngIf="page === 'saved'"
