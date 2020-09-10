@@ -1,0 +1,13 @@
+::ng-deep .p-card-override {
+  border-radius: 17px;
+}
+
+::ng-deep .p-button-label {
+  display: none;
+}
+
+.button-card {
+  padding: 0;
+  border: none;
+  width: 100%;
+}

@@ -1,1 +1,42 @@
 <app-search-form></app-search-form>
+<div>
+  <div>
+    <ngx-flip [flip]="flipBook1">
+      <div front>
+        <button (click)="toggleBookCard1()" class="button-card">
+          <p-card> Front </p-card>
+        </button>
+      </div>
+      <div back>
+        <button (click)="toggleBookCard1()" class="button-card">
+          <p-card> Back </p-card>
+        </button>
+      </div>
+    </ngx-flip>
+  </div>
+  <div>
+    <ngx-flip [flip]="flipBook2">
+      <div front>
+        <button (click)="toggleBookCard2()" class="button-card">
+          <p-card> Front </p-card>
+        </button>
+      </div>
+      <div back>
+        <button (click)="toggleBookCard2()" class="button-card">
+          <p-card> Back </p-card>
+        </button>
+      </div>
+    </ngx-flip>
+  </div>
+  <ul style="list-style-type: none">
+    <li *ngFor="let book of books">
+      <h2>{{ book.title }}</h2>
+      <p *ngIf="book.description !== undefined">{{ book.description }}</p>
+      <img
+        *ngIf="book.image !== undefined"
+        alt="Book Thumbnail"
+        [src]="book.image"
+      />
+    </li>
+  </ul>
+</div>

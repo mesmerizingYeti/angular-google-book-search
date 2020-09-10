@@ -12,20 +12,8 @@
       </span>
     </div>
     <div class="p-field">
-      <button pButton pRipple type="button" class="">Search</button>
+      <button pButton pRipple type="button" (click)="handleSearch()">Search</button>
     </div>
   </div>
 </p-card>
 <br />
-<ngx-flip [flip]="flipBook">
-  <div front>
-    <button (click)="toggleBookCard()" class="button-card">
-      <p-card> Front </p-card>
-    </button>
-  </div>
-  <div back>
-    <button (click)="toggleBookCard()" class="button-card">
-      <p-card> Back </p-card>
-    </button>
-  </div>
-</ngx-flip>

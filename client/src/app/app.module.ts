@@ -10,10 +10,13 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
+import { DataViewModule } from 'primeng/dataview';
 import { FlipModule } from 'ngx-flip'
 
 import { DrawerService } from './services/drawer/drawer.service';
+import { SearchBooksService } from './services/search-books/search-books.service';
 import { SavedBooksService } from './services/saved-books/saved-books.service';
+import { BookApiService } from './services/book-api/book-api.service';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
@@ -45,11 +48,14 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     MenuModule,
     CardModule,
     InputTextModule,
+    DataViewModule,
     FlipModule,
   ],
   providers: [
     DrawerService,
+    SearchBooksService,
     SavedBooksService,
+    BookApiService,
   ],
   bootstrap: [AppComponent]
 })
