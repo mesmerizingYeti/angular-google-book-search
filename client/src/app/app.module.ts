@@ -11,7 +11,9 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { FlipModule } from 'ngx-flip'
 
-import { DrawerService } from './drawer.service';
+import { DrawerService } from './services/drawer/drawer.service';
+import { SavedBooksService } from './services/saved-books/saved-books.service';
+
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { SavedPageComponent } from './pages/saved-page/saved-page.component';
@@ -44,7 +46,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     FlipModule,
   ],
   providers: [
-    DrawerService
+    DrawerService,
+    SavedBooksService,
   ],
   bootstrap: [AppComponent]
 })

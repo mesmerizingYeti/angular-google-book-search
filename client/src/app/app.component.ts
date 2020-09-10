@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { DrawerService } from './drawer.service'
+import { DrawerService } from './services/drawer/drawer.service'
 
 @Component({
   selector: 'app-root',

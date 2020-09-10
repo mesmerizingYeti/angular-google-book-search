@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api'
-import { DrawerService } from '../../drawer.service';
+import { DrawerService } from '../../services/drawer/drawer.service';
 
 @Component({
   selector: 'app-nav-drawer',
