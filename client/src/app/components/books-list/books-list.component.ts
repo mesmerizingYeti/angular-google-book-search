@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../books';
-import { BookApiService } from '../../services/book-api/book-api.service'
+import { BookApiService } from '../../services/book-api/book-api.service';
+import { SavedBooksService } from '../../services/saved-books/saved-books.service';
 
 @Component({
   selector: 'app-books-list',
@@ -15,7 +16,7 @@ export class BooksListComponent implements OnInit {
   modalHeader: string = "";
   modalDescription: string = "";
 
-  constructor(private BookApi: BookApiService) { }
+  constructor(private BookApi: BookApiService, private data: SavedBooksService) { }
 
   ngOnInit(): void {
   }
@@ -42,6 +43,14 @@ export class BooksListComponent implements OnInit {
     this.BookApi.addBook(book)
       .then(book => {
         console.log(book)
+      })
+      .catch(err => console.error(err));
+  }
+
+  handleDeleteClick = (_id: string) => {
+    this.BookApi.deleteBook(_id)
+      .then(() => {
+        this.data.removeBook(_id);
       })
       .catch(err => console.error(err));
   }

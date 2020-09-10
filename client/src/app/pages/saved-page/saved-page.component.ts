@@ -15,7 +15,6 @@ export class SavedPageComponent implements OnInit {
   ngOnInit(): void {
     this.savedBooksService.getBooks()
     this.savedBooksService.currentBooks.subscribe((value) => (this.books = value));
-    console.log(this.books)
   }
 
 }

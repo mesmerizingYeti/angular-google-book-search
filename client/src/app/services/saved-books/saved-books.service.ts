@@ -20,6 +20,7 @@ export class SavedBooksService {
     this.BookApi.getSavedBooks()
       .then((books: Array<Object>) => {
         var newBooks = books.map((book: {
+          _id: string,
           google_id: string,
           title: string,
           authors: [string],
@@ -28,7 +29,7 @@ export class SavedBooksService {
           image: string,
           link: string
         }) => {
-          return new Book(
+          var newBook = new Book(
             book.google_id, 
             book.title,
             book.authors,
@@ -37,13 +38,18 @@ export class SavedBooksService {
             book.image,
             book.link
           )
+          newBook._id = book._id;
+          return newBook;
         });
         this.savedBooks.next(newBooks);
       })
   }
 
-  setBooks = (books: Book[]) => {
-    this.savedBooks.next(books);
+  removeBook = (_id: string) => {
+    // remove book from local storage
+    this.savedBooks.next(
+      this.savedBooks.value.filter(book => book._id !== _id)
+    );
   }
 
 }
