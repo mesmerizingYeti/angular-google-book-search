@@ -36,6 +36,7 @@
           iconPos="left"
           label="View"
           styleClass="p-button-raised p-button-secondary p-mb-2"
+          (click)="handleViewClick(book.link)"
         ></p-button>
         <p-button
           *ngIf="page === 'search'"

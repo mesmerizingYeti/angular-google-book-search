@@ -1,7 +1,10 @@
 module.exports = (model, Schema) => {
 
   const Book = new Schema ({
-    google_id: String,
+    google_id: {
+      type: String,
+      unique: true
+    },
     title: String,
     authors: [String],
     publishedDate: String,

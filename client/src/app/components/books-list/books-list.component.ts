@@ -20,10 +20,17 @@ export class BooksListComponent implements OnInit {
   }
 
   handleOpenDescription = (google_id: string) => {
+    // personalize modal based on book clicked
     var book: Book = this.books.filter((book) => book.google_id === google_id)[0];
     this.modalHeader = book.title;
     this.modalDescription = book.description ? book.description : "No description available";
+    // set modal to open
     this.modalOpen = true;
+  }
+
+  handleViewClick = (url: string) => {
+    // open book link in new tab
+    window.open(url, "_blank");
   }
 
 }
