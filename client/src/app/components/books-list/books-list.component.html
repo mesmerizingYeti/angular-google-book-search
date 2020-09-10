@@ -1,3 +1,11 @@
+<!-- Description Modal -->
+<p-dialog [header]="modalHeader" [(visible)]="modalOpen">
+  <p>
+    {{ modalDescription }}
+  </p>
+</p-dialog>
+
+<!-- List of Books -->
 <p-dataView *ngIf="books.length" [value]="books">
   <ng-template let-book pTemplate="listItem">
     <div class="p-col-12 p-d-flex p-jc-between">
@@ -20,6 +28,7 @@
           iconPos="left"
           label="Description"
           styleClass="p-button-raised p-button-info p-mb-2"
+          (click)="handleOpenDescription(book.google_id)"
         ></p-button>
         <p-button
           pRipple

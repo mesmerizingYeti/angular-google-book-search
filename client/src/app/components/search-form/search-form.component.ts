@@ -17,11 +17,11 @@ export class SearchFormComponent implements OnInit {
 
   handleSearch = () => {
     if (this.bookTitle !== undefined) {
-      this.bookService.searchForTitle(this.bookTitle)
+      this.searchBooksService.searchForTitle(this.bookTitle)
     }
   }
 
-  constructor(private bookService: SearchBooksService) { }
+  constructor(private searchBooksService: SearchBooksService) { }
 
   ngOnInit(): void {
   }

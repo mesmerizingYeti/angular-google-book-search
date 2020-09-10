@@ -18,7 +18,8 @@ export class SearchBooksService {
       .toPromise()
       .then((data: { items: [] }) => {
         var searchBooks = data.items.map(
-          (item : { 
+          (item : {
+            id: string,
             volumeInfo: { 
               authors: [string], 
               description: string, 
@@ -30,6 +31,7 @@ export class SearchBooksService {
               title: string
           }}) => {
             return new Book(
+              item.id,
               item.volumeInfo.title, 
               item.volumeInfo.authors, 
               item.volumeInfo.publishedDate, 
