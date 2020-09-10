@@ -11,7 +11,6 @@ import { MenuModule } from 'primeng/menu';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
-import { FlipModule } from 'ngx-flip'
 
 import { DrawerService } from './services/drawer/drawer.service';
 import { SearchBooksService } from './services/search-books/search-books.service';
@@ -49,7 +48,6 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     CardModule,
     InputTextModule,
     DataViewModule,
-    FlipModule,
   ],
   providers: [
     DrawerService,

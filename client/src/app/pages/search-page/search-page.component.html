@@ -1,33 +1,5 @@
 <app-search-form></app-search-form>
-<div>
-  <div>
-    <ngx-flip [flip]="flipBook1">
-      <div front>
-        <button (click)="toggleBookCard1()" class="button-card">
-          <p-card> Front </p-card>
-        </button>
-      </div>
-      <div back>
-        <button (click)="toggleBookCard1()" class="button-card">
-          <p-card> Back </p-card>
-        </button>
-      </div>
-    </ngx-flip>
-  </div>
-  <div>
-    <ngx-flip [flip]="flipBook2">
-      <div front>
-        <button (click)="toggleBookCard2()" class="button-card">
-          <p-card> Front </p-card>
-        </button>
-      </div>
-      <div back>
-        <button (click)="toggleBookCard2()" class="button-card">
-          <p-card> Back </p-card>
-        </button>
-      </div>
-    </ngx-flip>
-  </div>
+<div class="p-d-flex p-d-column">
   <ul style="list-style-type: none">
     <li *ngFor="let book of books">
       <h2>{{ book.title }}</h2>
