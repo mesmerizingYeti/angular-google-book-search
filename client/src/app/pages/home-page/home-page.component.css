@@ -6,7 +6,3 @@ img {
 ::ng-deep .p-button-override {
   padding: 0;
 }
-
-::ng-deep .p-button-label {
-  display: none;
-}
