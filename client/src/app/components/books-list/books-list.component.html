@@ -1,0 +1,50 @@
+<p-dataView *ngIf="books.length" [value]="books">
+  <ng-template let-book pTemplate="listItem">
+    <div class="p-col-12 p-d-flex p-jc-between">
+      <div class="p-col-2">
+        <img alt="Book Cover" [src]="book.image" />
+      </div>
+      <div class="p-col-7 p-d-flex p-flex-column p-jc-between">
+        <div>
+          <h4>{{ book.title }}</h4>
+        </div>
+        <div class="p-d-flex p-jc-between">
+          <p *ngIf="book.authors">{{ book.authors.join(", ") }}</p>
+          <p>{{ book.publishedDate }}</p>
+        </div>
+      </div>
+      <div class="p-col-2 p-d-flex p-flex-column p-jc-center p-ai-right">
+        <p-button
+          pRipple
+          icon="pi pi-info"
+          iconPos="left"
+          label="Description"
+          styleClass="p-button-raised p-button-info p-mb-2"
+        ></p-button>
+        <p-button
+          pRipple
+          icon="pi pi-external-link"
+          iconPos="left"
+          label="View"
+          styleClass="p-button-raised p-button-secondary p-mb-2"
+        ></p-button>
+        <p-button
+          *ngIf="page === 'search'"
+          pRipple
+          icon="pi pi-save"
+          iconPos="left"
+          label="Save"
+          styleClass="p-button-raised p-button-success"
+        ></p-button>
+        <p-button
+          *ngIf="page === 'saved'"
+          pRipple
+          icon="pi pi-trash"
+          iconPos="left"
+          label="Delete"
+          styleClass="p-button-raised p-button-danger"
+        ></p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-dataView>

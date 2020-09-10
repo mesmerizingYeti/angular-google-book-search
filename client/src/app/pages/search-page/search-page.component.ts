@@ -14,7 +14,7 @@ export class SearchPageComponent implements OnInit {
   constructor(private booksService: SearchBooksService) { }
 
   ngOnInit(): void {
-    this.booksService.currentBooks.subscribe(value => {this.books = value; console.log(value)});
+    this.booksService.currentBooks.subscribe(value => {this.books = value});
   }
 
 }

@@ -26,6 +26,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { NavDrawerComponent } from './components/nav-drawer/nav-drawer.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { BooksListComponent } from './components/books-list/books-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     HomePageComponent,
     SearchPageComponent,
     SavedPageComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    BooksListComponent
   ],
   imports: [
     FormsModule,
