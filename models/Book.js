@@ -1,6 +1,7 @@
 module.exports = (model, Schema) => {
 
   const Book = new Schema ({
+    google_id: String,
     title: String,
     authors: [String],
     publishedDate: String,
