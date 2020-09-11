@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../books';
 import { BookApiService } from '../../services/book-api/book-api.service';
 import { SavedBooksService } from '../../services/saved-books/saved-books.service';
+import { SearchBooksService } from '../../services/search-books/search-books.service';
 
 @Component({
   selector: 'app-books-list',
@@ -16,7 +17,10 @@ export class BooksListComponent implements OnInit {
   modalHeader: string = "";
   modalDescription: string = "";
 
-  constructor(private BookApi: BookApiService, private data: SavedBooksService) { }
+  constructor(
+    private BookApi: BookApiService, 
+    private SavedService: SavedBooksService,
+    private SearchService: SearchBooksService) { }
 
   ngOnInit(): void {
   }
@@ -37,12 +41,13 @@ export class BooksListComponent implements OnInit {
 
   handleSaveClick = (google_id: string) => {
     // find book clicked
-    var book = this.books.filter((book) => book.google_id === google_id)[0];
+    var book = this.books.filter(book => book.google_id === google_id)[0];
     // remove _id so mongoDB can automatically assign one
     delete book._id;
     this.BookApi.addBook(book)
       .then(book => {
         console.log(book)
+        this.SearchService.setBooks(this.books.filter(book => book.google_id !== google_id))
       })
       .catch(err => console.error(err));
   }
@@ -50,7 +55,7 @@ export class BooksListComponent implements OnInit {
   handleDeleteClick = (_id: string) => {
     this.BookApi.deleteBook(_id)
       .then(() => {
-        this.data.removeBook(_id);
+        this.SavedService.removeBook(_id);
       })
       .catch(err => console.error(err));
   }

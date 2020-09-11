@@ -13,6 +13,10 @@ export class SearchBooksService {
 
   constructor(private BookApi: BookApiService) { }
 
+  setBooks = (books: Book[]) => {
+    this.books.next(books);
+  }
+
   searchForTitle = (title: string) => {
     this.BookApi.searchForBooks(title)
       .then((data: { items: [] }) => {
